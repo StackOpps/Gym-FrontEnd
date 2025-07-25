@@ -5,8 +5,14 @@ export default function Hero() {
     return (
         <section
             id="hero"
-            className="bg-gradient-to-br from-indigo-700 to-purple-700 text-white py-20"
+            style={{
+                background: "linear-gradient(to bottom right, #25142d, #a83466)",
+                color: "white",
+                paddingTop: "5rem",
+                paddingBottom: "5rem"
+            }}
         >
+
             <div className="max-w-7xl mx-auto px-6 text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: -20 }}
@@ -21,7 +27,9 @@ export default function Hero() {
                 </p>
                 <motion.button
                     whileHover={{ scale: 1.05 }}
-                    className="bg-white text-indigo-700 font-semibold px-8 py-3 rounded-full shadow-lg"
+                    className="bg-white font-semibold px-8 py-3 rounded-full shadow-lg"
+                    style={{ color: '#a83466' }}
+
                 >
                     Conoce más
                 </motion.button>
