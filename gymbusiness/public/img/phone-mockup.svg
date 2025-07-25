@@ -1,0 +1,13 @@
+<svg width="384" height="768" viewBox="0 0 384 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="384" height="768" rx="48" fill="#111827"/>
+  <rect x="32" y="96" width="320" height="576" rx="32" fill="url(#grad1)"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold" font-size="48">
+    GymApp
+  </text>
+  <defs>
+    <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+</svg>
