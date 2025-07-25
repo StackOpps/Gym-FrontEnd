@@ -7,13 +7,16 @@ import InfoSection from "./components/InfoSection";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import CAT from "./components/CTA";
-
+import Content from "./components/Content";
 const Home: NextPage = () => {
   return (
     <>
       <Head>
         <title>GymApp - Tu app para gimnasios</title>
-        <meta name="description" content="Gestiona tu gimnasio y motiva a tus clientes con GymApp." />
+        <meta
+          name="description"
+          content="Gestiona tu gimnasio y motiva a tus clientes con GymApp."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -21,7 +24,8 @@ const Home: NextPage = () => {
       <main>
         <Hero />
         <InfoSection />
-        <CAT/>
+        <Content />
+        <CAT />
         <Features />
       </main>
       <Footer />
