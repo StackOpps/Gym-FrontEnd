@@ -58,22 +58,23 @@ const features = [
 
 export default function Features() {
     return (
-        <section id="features" className="py-20 bg-gray-50">
+        <section id="features" className="py-20 bg-bg">
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-12">Características principales</h2>
+                <h2 className="text-4xl font-bold text-center mb-12 text-fg">Características principales</h2>
                 <div className="grid gap-10 md:grid-cols-3">
                     {features.map(({ title, desc, icon }) => (
                         <div
                             key={title}
-                            className="bg-white p-8 rounded-lg shadow hover:shadow-lg transition cursor-default"
+                            className="bg-card p-8 rounded-lg shadow hover:shadow-lg transition cursor-default"
                         >
                             <div className="mb-4">{icon}</div>
-                            <h3 className="text-xl font-semibold mb-2">{title}</h3>
-                            <p className="text-gray-600">{desc}</p>
+                            <h3 className="text-xl font-semibold mb-2 text-card-fg">{title}</h3>
+                            <p className="text-card-desc">{desc}</p>
                         </div>
                     ))}
                 </div>
             </div>
         </section>
+
     );
 }

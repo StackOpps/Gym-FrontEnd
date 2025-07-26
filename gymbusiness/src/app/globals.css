@@ -6,15 +6,35 @@
   --foreground: #171717;
   --font-sans: 'Arial', 'Helvetica', sans-serif;
   --font-mono: 'Courier New', monospace;
+
+  /* Variables para tarjetas */
+  --card-bg: #ffffff;
+  --card-fg: #1f2937;
+  --card-desc: #4b5563;
+
+  /* Variables para CTA */
+  --cta-bg: #a83466;
+  --cta-text: #ffffff;
+  --cta-btn-bg: #ffffff;
+  --cta-btn-text: #a83466;
 }
 
-/* Variables para modo oscuro cuando <html> tiene clase .dark */
+/* Variables para modo oscuro */
 html.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+
+  --card-bg: #1f2937;
+  --card-fg: #f9fafb;
+  --card-desc: #9ca3af;
+
+  --cta-bg: #25142d;
+  --cta-text: #ededed;
+  --cta-btn-bg: #a83466;
+  --cta-btn-text: #ffffff;
 }
 
-/* Aplica los colores con variables CSS */
+/* Aplica los colores y tipografía con variables CSS */
 html,
 body {
   height: 100%;
@@ -25,7 +45,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Opcional: personaliza links para que también cambien de color */
+/* Links con transición de color */
 a {
   color: var(--foreground);
   text-decoration: underline;
@@ -37,11 +57,34 @@ a:hover {
   /* azul claro al pasar el mouse */
 }
 
-/* Clases utilitarias */
+/* Clases utilitarias para colores de fondo y texto usando variables */
 .bg-bg {
   background-color: var(--background);
 }
 
 .text-fg {
   color: var(--foreground);
+}
+
+.bg-card {
+  background-color: var(--card-bg);
+  color: var(--card-fg);
+}
+
+.text-card-fg {
+  color: var(--card-fg);
+}
+
+.text-card-desc {
+  color: var(--card-desc);
+}
+
+.bg-cta {
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+}
+
+.btn-cta {
+  background-color: var(--cta-btn-bg);
+  color: var(--cta-btn-text);
 }
