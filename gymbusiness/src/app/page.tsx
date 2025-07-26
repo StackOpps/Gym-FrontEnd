@@ -2,7 +2,7 @@ import Hero from './components/Hero';
 import Content from './components/Content';
 import CTA from './components/CTA';
 import Features from './components/Features';
-import InfoSection from './components/InfoSection';
+import Reviews from './components/Reviews';
 
 export default function HomePage() {
   return (
@@ -11,7 +11,7 @@ export default function HomePage() {
       <Content />
       <CTA />
       <Features />
-      <InfoSection />
+      <Reviews />
     </>
   );
 }
