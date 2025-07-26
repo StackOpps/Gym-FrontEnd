@@ -32,7 +32,7 @@ export default function Header() {
                         {[
                             { href: "/", label: "Inicio" },
                             { href: "/servicios", label: "Servicios" },
-                            { href: "/contacto", label: "Contacto" },
+                            { href: "/contactanos", label: "Contacto" },
                             { href: "/nosotros", label: "Nosotros" },
 
                         ].map(({ href, label }) => (
