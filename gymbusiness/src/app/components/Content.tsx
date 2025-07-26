@@ -23,7 +23,7 @@ export default function Content() {
             <li>Clases grupales dinámicas</li>
           </ul>
           <a
-            href="#servicios"
+            href="/servicios"
             className="inline-block bg-[#a83466] text-white px-6 py-3 rounded-lg hover:bg-[#922c59] transition"
           >
             Conoce nuestros servicios
