@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
-import { Sun, Moon, Menu, X, Contact } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Header() {
@@ -13,13 +13,35 @@ export default function Header() {
     useEffect(() => {
         setMounted(true);
     }, []);
+
     if (!mounted) return null;
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-bg/90 backdrop-blur-md shadow-md border-b dark:border-gray-800 transition-colors duration-500 h-16 sm:h-20">
-            <div className="max-w-7xl mx-auto flex items-center justify-between h-full px-4 sm:px-6 lg:px-12">
-                {/* Menú izquierdo */}
-                <div className="flex items-center space-x-4">
+            <div className="relative max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-12 flex items-center justify-between">
+
+                {/* Menú izquierdo (visible en escritorio) */}
+                <div className="hidden lg:flex items-center space-x-6 font-semibold text-fg tracking-wide">
+                    {[
+                        { href: "/", label: "Inicio" },
+                        { href: "/servicios", label: "Servicios" },
+                        { href: "/contactanos", label: "Contacto" },
+                        { href: "/nosotros", label: "Nosotros" },
+                    ].map(({ href, label }) => (
+                        <Link
+                            key={href}
+                            href={href}
+                            className="relative group py-2 hover:text-[#a83466] transition-colors no-underline"
+                        >
+                            {label}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a83466] group-hover:w-full transition-all duration-300" />
+                        </Link>
+
+                    ))}
+                </div>
+
+                {/* Logo (centrado en escritorio, normal en móvil) */}
+                <div className="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
                     <Image
                         src="/img/logo.png"
                         alt="Logo"
@@ -28,32 +50,11 @@ export default function Header() {
                         className="rounded-md"
                         priority
                     />
-                    <nav className="hidden lg:flex items-center space-x-6 font-semibold text-fg tracking-wide">
-                        {[
-                            { href: "/", label: "Inicio" },
-                            { href: "/servicios", label: "Servicios" },
-                            { href: "/contactanos", label: "Contacto" },
-                            { href: "/nosotros", label: "Nosotros" },
-
-                        ].map(({ href, label }) => (
-                            <Link
-                                key={href}
-                                href={href}
-                                className="relative group py-2 hover:text-[#a83466] transition-colors"
-                            >
-                                {label}
-                                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a83466] group-hover:w-full transition-all duration-300" />
-                            </Link>
-                        ))}
-                    </nav>
                 </div>
 
-                {/* Modo oscuro (solo escritorio) */}
-
-
-                {/* Panel administrativo + móvil */}
+                {/* Controles a la derecha */}
                 <div className="flex items-center space-x-3">
-                    {/* Panel Admin visible siempre */}
+                    {/* Panel Admin (solo visible en sm o más) */}
                     <Link
                         href="/admin"
                         className="hidden sm:inline-flex px-4 py-2 bg-[#a83466] hover:bg-[#922c59] text-white rounded-md text-sm font-semibold transition"
@@ -61,7 +62,7 @@ export default function Header() {
                         Panel Administrativo
                     </Link>
 
-                    {/* Botón modo oscuro solo móvil */}
+                    {/* Botón modo oscuro (solo móvil) */}
                     <button
                         onClick={toggleDarkMode}
                         aria-label="Toggle dark mode"
@@ -70,7 +71,7 @@ export default function Header() {
                         {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
 
-                    {/* Menú hamburguesa */}
+                    {/* Menú hamburguesa (solo móvil) */}
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="lg:hidden p-2 text-fg rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition"
@@ -81,7 +82,7 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Menú móvil */}
+            {/* Menú móvil desplegable */}
             <nav
                 className={`lg:hidden bg-bg dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-all duration-300 ease-in-out overflow-hidden ${menuOpen ? "max-h-screen py-5" : "max-h-0 py-0"
                     }`}
@@ -89,10 +90,9 @@ export default function Header() {
                 <ul className="flex flex-col px-6 space-y-3 font-semibold text-fg tracking-wide">
                     {[
                         { href: "/", label: "Inicio" },
+                        { href: "/servicios", label: "Servicios" },
+                        { href: "/contactanos", label: "Contacto" },
                         { href: "/nosotros", label: "Nosotros" },
-                        { href: "/horarios", label: "Horarios" },
-                        { href: "/docentes", label: "Docentes" },
-                        { href: "/aulas", label: "Aulas" },
                         { href: "/admin", label: "Panel Administrativo" },
                     ].map(({ href, label }) => (
                         <li key={href}>
