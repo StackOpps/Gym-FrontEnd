@@ -34,7 +34,7 @@ export default function Content() {
         {/* Imagen */}
         <div className="flex justify-center md:justify-end">
           <Image
-            src="/img/PesasGym.jpeg"
+            src="/img/PesasGym.jpg"
             alt="Entrenamiento GYMFIT"
             width={500}
             height={500}

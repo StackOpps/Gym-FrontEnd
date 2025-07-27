@@ -1,18 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+/* Fuente moderna tipo Gym */
 
 /* Variables para modo claro (por defecto) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: 'Arial', 'Helvetica', sans-serif;
+  --font-sans: 'Poppins', sans-serif;
   --font-mono: 'Courier New', monospace;
 
-  /* Variables para tarjetas */
+  /* Tarjetas */
   --card-bg: #ffffff;
   --card-fg: #1f2937;
   --card-desc: #4b5563;
 
-  /* Variables para CTA */
+  /* CTA */
   --cta-bg: #a83466;
   --cta-text: #ffffff;
   --cta-btn-bg: #ffffff;
@@ -34,7 +40,18 @@ html.dark {
   --cta-btn-text: #ffffff;
 }
 
-/* Aplica los colores y tipografía con variables CSS */
+
+.text-fg,
+.text-card-desc,
+.bg-bg,
+.bg-card,
+.bg-cta,
+.btn-cta {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* General */
 html,
 body {
   height: 100%;
@@ -45,6 +62,27 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Tipografías de encabezado estilo Gym */
+.heading-xl {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-md {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.heading-sm {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Contenedor */
 .container {
   width: 100%;
   max-width: 1280px;
@@ -53,20 +91,18 @@ body {
   padding-right: 1rem;
 }
 
-
-/* Links con transición de color */
+/* Enlaces */
 a {
   color: var(--foreground);
-  text-decoration: underline;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
   color: #3b82f6;
-  /* azul claro al pasar el mouse */
 }
 
-/* Clases utilitarias para colores de fondo y texto usando variables */
+/* Utilidades */
 .bg-bg {
   background-color: var(--background);
 }
@@ -96,13 +132,27 @@ a:hover {
 .btn-cta {
   background-color: var(--cta-btn-bg);
   color: var(--cta-btn-text);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-html {
-  font-size: 100%;
-  /* puedes cambiar según necesidades */
+/* Hero Background */
+.bg-hero-image {
+  background-image: url('/img/fondo1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+.bg-hero-imagec {
+  background-image: url('/img/fondo5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Responsivo */
 @media (max-width: 480px) {
   html {
     font-size: 95%;
