@@ -24,9 +24,9 @@ export default function Header() {
                 <div className="hidden lg:flex items-center space-x-6 font-semibold text-fg tracking-wide">
                     {[
                         { href: "/", label: "Inicio" },
-                        { href: "/servicios", label: "Servicios" },
+                        { href: "/beneficios", label: "Beneficios" },
+                        { href: "/gimnasios", label: "Gimnasios" },
                         { href: "/contactanos", label: "Contacto" },
-                        { href: "/nosotros", label: "Nosotros" },
                     ].map(({ href, label }) => (
                         <Link
                             key={href}

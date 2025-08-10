@@ -152,6 +152,20 @@ a:hover {
   background-repeat: no-repeat;
 }
 
+.bg-hero-imageg {
+  background-image: url('/img/fondo7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-hero-imageben {
+  background-image: url('/img/fondo8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 /* Responsivo */
 @media (max-width: 480px) {
   html {
