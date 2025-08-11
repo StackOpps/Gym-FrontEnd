@@ -1,26 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
+/* Fuente moderna tipo Gym */
+
+/* Variables para modo claro (por defecto) */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sans: 'Poppins', sans-serif;
+  --font-mono: 'Courier New', monospace;
+
+  /* Tarjetas */
+  --card-bg: #ffffff;
+  --card-fg: #1f2937;
+  --card-desc: #4b5563;
+
+  /* CTA */
+  --cta-bg: #a83466;
+  --cta-text: #ffffff;
+  --cta-btn-bg: #ffffff;
+  --cta-btn-text: #a83466;
+  --gim-btn-text: #a83466;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Variables para modo oscuro */
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --card-bg: #1f2937;
+  --card-fg: #f9fafb;
+  --card-desc: #9ca3af;
+
+  --cta-bg: #25142d;
+  --cta-text: #ededed;
+  --cta-btn-bg: #a83466;
+  --cta-btn-text: #ffffff;
+  --gim-btn-text: #a83466;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+.text-fg,
+.text-card-desc,
+.bg-bg,
+.bg-card,
+.bg-cta,
+.btn-cta {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+
+/* General */
+html,
 body {
-  background: var(--background);
+  height: 100%;
+  margin: 0;
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-cta-btn-bg {
+  color: var(--cta-btn-bg);
+  transition: color 0.3s ease;
+}
+
+
+.heading-xl {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-md {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.heading-sm {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Contenedor */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Enlaces */
+a {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #3b82f6;
+}
+
+/* Utilidades */
+.bg-bg {
+  background-color: var(--background);
+}
+
+.text-fg {
+  color: var(--foreground);
+}
+
+.bg-card {
+  background-color: var(--card-bg);
+  color: var(--card-fg);
+}
+
+.text-card-fg {
+  color: var(--card-fg);
+}
+
+.text-card-desc {
+  color: var(--card-desc);
+}
+
+.bg-cta {
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+}
+
+.btn-cta {
+  background-color: var(--cta-btn-bg);
+  color: var(--cta-btn-text);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hero Background */
+.bg-hero-image {
+  background-image: url('/img/fondo1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-hero-imagec {
+  background-image: url('/img/fondo5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-hero-imageg {
+  background-image: url('/img/fondo7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-hero-imageben {
+  background-image: url('/img/fondo8.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  html {
+    font-size: 95%;
+  }
 }
