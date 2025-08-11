@@ -25,7 +25,7 @@ export default function Header() {
                     {[
                         { href: "/", label: "Inicio" },
                         { href: "/beneficios", label: "Beneficios" },
-                        { href: "/gimnasios", label: "Gimnasios" },
+                        { href: "/gymapp", label: "GymApp" },
                         { href: "/contactanos", label: "Contacto" },
                     ].map(({ href, label }) => (
                         <Link
