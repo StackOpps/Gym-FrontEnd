@@ -4,17 +4,22 @@ import Image from "next/image";
 import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
     const { darkMode, toggleDarkMode } = useTheme();
     const [mounted, setMounted] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
     if (!mounted) return null;
+
+    // Ocultar "Panel Administrativo" si estamos en /admin o rutas hijas (/admin/...)
+    const showAdminLink = !pathname.startsWith("/admin");
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-bg/90 backdrop-blur-md shadow-md border-b dark:border-gray-800 transition-colors duration-500 h-16 sm:h-20">
@@ -36,7 +41,6 @@ export default function Header() {
                             {label}
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#a83466] group-hover:w-full transition-all duration-300" />
                         </Link>
-
                     ))}
                 </div>
 
@@ -54,13 +58,16 @@ export default function Header() {
 
                 {/* Controles a la derecha */}
                 <div className="flex items-center space-x-3">
-                    {/* Panel Admin (solo visible en sm o más) */}
-                    <Link
-                        href="/admin"
-                        className="hidden sm:inline-flex px-4 py-2 bg-[#a83466] hover:bg-[#922c59] text-white rounded-md text-sm font-semibold transition"
-                    >
-                        Panel Administrativo
-                    </Link>
+                    {showAdminLink && (
+                        <a
+                            href="/login"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden sm:inline-flex px-4 py-2 bg-[#a83466] hover:bg-[#922c59] text-white rounded-md text-sm font-semibold transition"
+                        >
+                            Panel Administrativo
+                        </a>
+                    )}
 
                     {/* Botón modo oscuro (solo móvil) */}
                     <button
@@ -93,7 +100,7 @@ export default function Header() {
                         { href: "/servicios", label: "Servicios" },
                         { href: "/contactanos", label: "Contacto" },
                         { href: "/nosotros", label: "Nosotros" },
-                        { href: "/admin", label: "Panel Administrativo" },
+                        ...(showAdminLink ? [{ href: "/login", label: "Panel Administrativo" }] : []),
                     ].map(({ href, label }) => (
                         <li key={href}>
                             <Link
