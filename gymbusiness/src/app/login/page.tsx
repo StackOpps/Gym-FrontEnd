@@ -50,7 +50,7 @@ export default function LoginPage() {
     return (
         <div className="login-container">
             <div className="login-box">
-                <h2>{isRegister ? "Regístrate" : "Bienvenido!!"}</h2>
+                <h2>{isRegister ? "Regístrate" : "Inicio de sesión"}</h2>
                 <form className="login-form" onSubmit={handleSubmit}>
                     <input
                         type="email"
