@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules"; // ⚠️ Quitamos Navigation
+import { Autoplay, Pagination } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -33,7 +33,7 @@ export default function ActividadesCarousel() {
             </h2>
 
             <Swiper
-                modules={[Pagination, Autoplay]} // 👈 Quitamos Navigation aquí también
+                modules={[Pagination, Autoplay]}
                 spaceBetween={24}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
@@ -48,7 +48,7 @@ export default function ActividadesCarousel() {
                 {activities.map(({ title, imgSrc }, index) => (
                     <SwiperSlide key={index} className="flex justify-center">
                         <div className="relative rounded-lg overflow-hidden group shadow-xl bg-card">
-                            <div className="relative w-full h-[32rem]"> {/* 👈 Altura aumentada */}
+                            <div className="relative w-full h-[32rem]">
                                 <Image
                                     src={imgSrc}
                                     alt={title}
@@ -59,7 +59,7 @@ export default function ActividadesCarousel() {
                             </div>
                             <div className="absolute bottom-0 left-0 w-full bg-[color:var(--card-bg)]/90 p-4 text-center">
                                 <h3 className="text-lg font-semibold uppercase text-card-fg">{title}</h3>
-                                <button className="mt-3 text-sm px-4 py-2 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors">
+                                <button className="mt-3 text-sm px-4 py-2 border border-black-400 text-black-400 rounded hover:bg-gray-400 hover:text-black transition-colors">
                                     Ver más
                                 </button>
                             </div>

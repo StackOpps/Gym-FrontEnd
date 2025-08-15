@@ -63,10 +63,11 @@ export default function Header() {
                             href="/login"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hidden sm:inline-flex px-4 py-2 bg-[#a83466] hover:bg-[#922c59] text-white rounded-md text-sm font-semibold transition"
+                            className="panel hidden sm:inline-flex px-4 py-2 bg-[#a83466] hover:bg-[#922c59] text-white !text-white rounded-md text-sm font-semibold transition"
                         >
                             Panel Administrativo
                         </a>
+
                     )}
 
                     {/* Botón modo oscuro (solo móvil) */}

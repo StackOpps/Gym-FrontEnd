@@ -106,8 +106,18 @@ a {
 }
 
 a:hover {
-  color: #3b82f6;
+  color: #a83466;
 }
+
+.panel {
+  color: white !important;
+}
+
+.panel:hover {
+  color: white !important;
+}
+
+
 
 /* Utilidades */
 .bg-bg {
