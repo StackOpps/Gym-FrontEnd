@@ -1,27 +1,56 @@
+:root {
+    --background: #f0f2f5;
+    --foreground: #222;
+    --card-bg: rgba(213, 213, 213, 0.293);
+    --card-fg: #000000;
+    --card-desc: rgba(0, 0, 0, 0.703);
+    --cta-bg: #007bff;
+    --cta-text: #fff;
+    --cta-btn-bg: #0056b3;
+    --cta-btn-text: #fff;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html.dark {
+    --background: #121212;
+    --foreground: #f5f5f5;
+    --card-bg: rgba(0, 0, 0, 0.484);
+    --card-fg: #f5f5f5;
+    --card-desc: rgba(255, 255, 255, 0.6);
+    --cta-bg: #4dabf7;
+    --cta-text: #000;
+    --cta-btn-bg: #339af0;
+    --cta-btn-text: #000;
+}
+
 /* Contenedor principal */
 .login-container {
     min-height: 100vh;
-    /* ocupa toda la pantalla */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--background);
+    background: linear-gradient(
+        rgba(59, 4, 65, 0.5), 
+        rgba(0, 0, 0, 0.9)
+    ), url('/img/login/fondo_login.jpg') center/cover no-repeat;
     padding: 1rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
     font-family: var(--font-sans);
 }
 
-/* Caja del formulario */
+/* Caja del formulario con glassmorphism */
 .login-box {
     background-color: var(--card-bg);
     color: var(--card-fg);
     padding: 2rem 2.5rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     max-width: 400px;
     width: 100%;
-    transition: background-color 0.3s ease, color 0.3s ease;
     text-align: center;
+    animation: fadeIn 0.8s ease;
 }
 
 /* Título */
@@ -40,30 +69,25 @@
 }
 
 /* Inputs */
-.login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="password"] {
+.login-form input {
     padding: 0.75rem 1rem;
     border: 1.5px solid var(--card-desc);
     border-radius: 0.5rem;
-    background-color: var(--background);
+    background-color: rgba(255, 255, 255, 0.2);
     color: var(--foreground);
     font-size: 1rem;
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    outline-offset: 2px;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 
 .login-form input::placeholder {
     color: var(--card-desc);
 }
 
-/* Focus en inputs */
 .login-form input:focus {
     border-color: var(--cta-bg);
-    background-color: var(--card-bg);
-    color: var(--card-fg);
+    background-color: rgba(255, 255, 255, 0.3);
     outline: none;
-    box-shadow: 0 0 0 3px var(--cta-bg);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
 }
 
 /* Botón principal */
@@ -76,48 +100,17 @@
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s, transform 0.2s;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .login-form button[type="submit"]:hover {
     background-color: var(--cta-btn-bg);
-    color: var(--cta-btn-text);
+    transform: translateY(-2px);
 }
 
-/* Toggle Login/Registro */
-.toggle-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.toggle-btn {
-    background: none;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.toggle-btn.active {
-    background-color: var(--cta-bg);
-    color: var(--cta-text);
-}
-
-.toggle-btn:not(.active) {
-    color: var(--card-desc);
-}
-
-.toggle-btn:hover:not(.active) {
-    color: var(--cta-bg);
-}
-
-/* Toggle con subrayado dinámico */
+/* Enlace de toggle */
 .toggle-link {
     background: none;
     border: none;
@@ -126,7 +119,7 @@
     padding: 0;
     color: var(--card-desc);
     font-size: 0.95rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 .toggle-link span {
@@ -145,71 +138,19 @@
     font-weight: 600;
 }
 
+/* Animación suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsivo */
 @media (max-width: 480px) {
     .login-box {
-        padding: 1.5rem 2rem;
-        max-width: 100%;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
     }
-
     .login-box h2 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
-}
-
-/* Modo oscuro */
-html.dark .login-container {
-    background-color: var(--background);
-}
-
-html.dark .login-box {
-    background-color: var(--card-bg);
-    color: var(--card-fg);
-}
-
-html.dark .login-form input {
-    background-color: var(--card-bg);
-    color: var(--card-fg);
-    border-color: var(--card-desc);
-}
-
-html.dark .login-form input::placeholder {
-    color: var(--card-desc);
-}
-
-html.dark .login-form input:focus {
-    border-color: var(--cta-bg);
-    background-color: var(--card-bg);
-    color: var(--card-fg);
-    box-shadow: 0 0 0 3px var(--cta-bg);
-}
-
-html.dark .login-form button[type="submit"] {
-    background-color: var(--cta-bg);
-    color: var(--cta-text);
-}
-
-html.dark .login-form button[type="submit"]:hover {
-    background-color: var(--cta-btn-bg);
-    color: var(--cta-btn-text);
-}
-
-html.dark .toggle-btn {
-    color: var(--cta-bg);
-}
-
-html.dark .toggle-btn:hover {
-    color: var(--cta-btn-bg);
-}
-
-html.dark .toggle-link {
-    color: var(--card-desc);
-}
-
-html.dark .toggle-link span {
-    color: var(--cta-bg);
-}
-
-html.dark .toggle-link:hover span {
-    color: var(--cta-btn-bg);
 }
