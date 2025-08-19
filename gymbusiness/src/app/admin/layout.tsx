@@ -32,6 +32,16 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                     <a href="/admin/dashboard" className="block hover:underline">Dashboard</a>
                     <a href="/admin/usuarios" className="block hover:underline">Usuarios</a>
                     <a href="/admin/configuracion" className="block hover:underline">Configuración</a>
+                    <a href="/admin/clientes-control" className="block hover:underline">Control de clientes</a>
+                    <a href="/admin/comunicacion" className="block hover:underline">Comunicación</a>
+                    <a href="/admin/control-asistencia" className="block hover:underline">Control de Asistencias</a>
+                    <a href="/admin/gestion" className="block hover:underline">Panel de Gestión</a>
+                    <a href="/admin/horarios" className="block hover:underline">Horarios</a>
+                    <a href="/admin/negocio" className="block hover:underline">Negocio</a>
+                    <a href="/admin/perfil" className="block hover:underline">Perfil</a>
+                    <a href="/admin/planes-membresias" className="block hover:underline">Planes y Membresias</a>
+                    <a href="/admin/rutinas" className="block hover:underline">Rutinas</a>
+                    <a href="/admin/usuarios" className="block hover:underline">Usuarios</a>
                 </nav>
             </div>
 
